@@ -32,6 +32,7 @@ const VotingApp = () => {
 
   const createTopic = async () => {
     if (!account) {
+      await connectWallet();
       setErrorMessage('Please connect your wallet');
       return;
     }
@@ -52,6 +53,7 @@ const VotingApp = () => {
 
   const createOption = async () => {
     if (!account) {
+      await connectWallet();
       setErrorMessage('Please connect your wallet');
       return;
     }
@@ -72,6 +74,7 @@ const VotingApp = () => {
 
   const vote = async () => {
     if (!account) {
+      await connectWallet();
       setErrorMessage('Please connect your wallet');
       return;
     }
@@ -113,7 +116,7 @@ const VotingApp = () => {
         {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
 
         <ConnectWalletButton onConnect={connectWallet}/> 
-
+         
         <div className="mb-4">
           <h2 className="text-xl font-bold mb-2">Create Topic</h2>
           <input
